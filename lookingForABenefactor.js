@@ -18,14 +18,15 @@
 // new_avg([14, 30, 5, 7, 9, 11, 15], 2) 
 // should raise an error (ValueError or invalid_argument or DomainError) 
 // or return `-1` or ERROR depending on the languagefunction newAvg(arr, newavg) {
-    let reducedArr = arr.reduce((x,y) => x + y, 0);
-    let numOfDonations = arr.length - 1;
-    let averageN = reducedArr / numOfDonations;
-    let missingAverage = newavg - averageN;
-    
-    let result =  newavg * (arr.length +1) - reducedArr;
-    if(result <= 0) throw "ValueError";
-    return Math.ceil(result);
-    
-      
-}
+    function newAvg(arr, newavg) {
+        let reducedArr = arr.reduce((x,y) => x + y, 0);
+        let numOfDonations = arr.length - 1;
+        let averageN = reducedArr / numOfDonations;
+        let missingAverage = newavg - averageN;
+        
+        let result =  newavg * (arr.length +1) - reducedArr;
+        if(result <= 0) throw "ValueError";
+        return Math.ceil(result);
+        
+          
+    }
