@@ -5,4 +5,4 @@
 function check(a, x) {
   // If X is not in the array then it returns -1
   return a.indexOf(x) > -1;
-};
+}

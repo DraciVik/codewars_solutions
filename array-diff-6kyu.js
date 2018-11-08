@@ -7,7 +7,6 @@
 
 // array_diff([1,2,2,2,3],[2]) == [1,3]
 
-
 function array_diff(a, b) {
   // goes trough all the items in array "a"
   for (let i = 0; i < a.length; i++) {
