@@ -32,18 +32,18 @@ var humanYearsCatYearsDogYears = function(humanYears) {
   if (humanYears === 1) {
     catYears = 1 * 15;
     dogYears = 1 * 15;
-    } else if (humanYears === 2) {
-        catYears = 15 + 9;
-        dogYears = 15 + 9;
-    } else if ( humanYears > 2) {
-        catYears = 24;
-        for(catI = 3; catI <= humanYears; catI++) {
-           catYears += 4;
-        };
-        dogYears = 24
-        for(dogI = 3; dogI <= humanYears; dogI++) {
-          dogYears += 5;
-        };
-  };
-  return [humanYears,catYears,dogYears];
-}
+  } else if (humanYears === 2) {
+    catYears = 15 + 9;
+    dogYears = 15 + 9;
+  } else if (humanYears > 2) {
+    catYears = 24;
+    for (catI = 3; catI <= humanYears; catI++) {
+      catYears += 4;
+    }
+    dogYears = 24;
+    for (dogI = 3; dogI <= humanYears; dogI++) {
+      dogYears += 5;
+    }
+  }
+  return [humanYears, catYears, dogYears];
+};

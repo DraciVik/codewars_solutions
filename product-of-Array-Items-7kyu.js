@@ -12,9 +12,8 @@ function product(values) {
   // checking if the array is null or if it's empty
   if (values === null || values.length == 0) {
     return null;
-  }
-  else {
+  } else {
     let hello = values.reduce((x, y) => x * y); // Multiplies each item in an array and returns the product of that multiplication
     return hello;
-  };
-  };
+  }
+}

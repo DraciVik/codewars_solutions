@@ -27,7 +27,9 @@ function sortArray(array) {
     }
   }
   // Sorts the items in arrOfOdd
-  arrOfOdds.sort(function (a, b) { return a - b });
+  arrOfOdds.sort(function(a, b) {
+    return a - b;
+  });
   for (let i = 0; i < arrOfPair.length; i++) {
     // Inserts the even numbers at the appropriate index in the arrOfOdds
     arrOfOdds.splice(arrOfPair[i], 0, array[arrOfPair[i]]);

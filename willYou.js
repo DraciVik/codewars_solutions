@@ -26,5 +26,5 @@
 
 function willYou(young, beautiful, loved) {
   // Cheated on this one. Had to look up
-  return (young && beautiful) ? !loved : loved;
+  return young && beautiful ? !loved : loved;
 }

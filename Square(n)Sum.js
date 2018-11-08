@@ -6,7 +6,7 @@ function squareSum(numbers) {
   let ss = numbers
     .map(number => number ** 2)
     .reduce((prev, next) => {
-      return prev + next
+      return prev + next;
     }, 0);
   return ss;
 }

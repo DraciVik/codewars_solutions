@@ -22,7 +22,6 @@ function f(n) {
       result += i;
     }
     return result;
-
   }
   // returns false in all other cases
   return false;

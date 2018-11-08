@@ -7,7 +7,7 @@
 // C...m returns 'Caught!' < --as there are three characters between the two, the cat can jump.
 
 function catMouse(x) {
-  if ((x[1] === ".") && (x[2] === ".") && (x[3] === ".") && (x[4] === ".")) {
+  if (x[1] === "." && x[2] === "." && x[3] === "." && x[4] === ".") {
     return "Escaped!";
   }
   return "Caught!";

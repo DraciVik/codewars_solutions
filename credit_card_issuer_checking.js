@@ -27,22 +27,32 @@ getIssuer(5105105105105106) == "Mastercard"
 getIssuer(9111111111111111) == "Unknown"
 */
 function getIssuer(number) {
-//  Using regular expressions to test the number for matches at the beggining of the number
+  //  Using regular expressions to test the number for matches at the beggining of the number
   let amex = /^34|^37/;
   let discover = /^6011/;
   let mastercard = /^51|^52|^53|^54|^55/;
   let visa = /^4/;
-// Testing the number if it matches the regular expression and then using a regular expression to count the digits in the number
-  if ((amex.test(number) === true) && (String(number).match(/\d/g).length === 15)) {
-      return "AMEX";
-      }  else if ((discover.test(number) === true) && (String(number).match(/\d/g).length === 16)) {
-      return "Discover";
-      }  else if ((mastercard.test(number) === true) && (String(number).match(/\d/g).length === 16)) {
-      return "Mastercard";
-      }  else if ((visa.test(number) === true) && (String(number).match(/\d/g).length === 13 || String(number).match(/\d/g).length === 16 )) {
-      return "VISA";
-      } else {
-// If nothing matches this is the default return
-      return "Unknown";
-      }
+  // Testing the number if it matches the regular expression and then using a regular expression to count the digits in the number
+  if (amex.test(number) === true && String(number).match(/\d/g).length === 15) {
+    return "AMEX";
+  } else if (
+    discover.test(number) === true &&
+    String(number).match(/\d/g).length === 16
+  ) {
+    return "Discover";
+  } else if (
+    mastercard.test(number) === true &&
+    String(number).match(/\d/g).length === 16
+  ) {
+    return "Mastercard";
+  } else if (
+    visa.test(number) === true &&
+    (String(number).match(/\d/g).length === 13 ||
+      String(number).match(/\d/g).length === 16)
+  ) {
+    return "VISA";
+  } else {
+    // If nothing matches this is the default return
+    return "Unknown";
+  }
 }

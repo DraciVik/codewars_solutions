@@ -8,12 +8,11 @@ function factorial(n) {
   // Throws an error if its out of range
   if (n < 0 || n > 12) {
     throw "RangeError";
-  };
+  }
   let result = 1;
   //   calculates the factorial;
   for (let i = n; i > 0; i--) {
     result *= i;
   }
-  return result
-
+  return result;
 }

@@ -19,11 +19,9 @@ function filter_list(l) {
   return numberArr;
 }
 
-
 function filter_list(l) {
   return l.filter(a => {
     //filters values that are not positive integers and are strings
-    return (a >= 0 && (typeof a !== "string"));
+    return a >= 0 && typeof a !== "string";
   });
-
 }

@@ -26,10 +26,14 @@ function drawSpider(legSize, bodySize, mouth, eye) {
   let arrOfBodyRight = ["", ")", "))", ")))"];
   // Eyes divided by half because they're symetrical
   let eyes = [];
-  for (let i = 0; i < (2 ** bodySize) / 2; i++) {
+  for (let i = 0; i < 2 ** bodySize / 2; i++) {
     eyes.push(eye);
-  };
-  let eyesforReal = eyes.join('');
+  }
+  let eyesforReal = eyes.join("");
   // Scary spider woooo
-  return `${arrOfLegsLeft[legSize]}${arrOfbodyleft[bodySize]}${eyesforReal}${mouth}${eyesforReal}${arrOfBodyRight[bodySize]}${arrofLegsRight[legSize]}`
+  return `${arrOfLegsLeft[legSize]}${
+    arrOfbodyleft[bodySize]
+  }${eyesforReal}${mouth}${eyesforReal}${arrOfBodyRight[bodySize]}${
+    arrofLegsRight[legSize]
+  }`;
 }
