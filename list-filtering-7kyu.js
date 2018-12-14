@@ -25,16 +25,3 @@ function filter_list(l) {
     return a >= 0 && typeof a !== "string";
   });
 }
-
-function getUsersIds(str) {
-  let newArr = str.toLowerCase().split(", ");
-  for (let i = 0; i < newArr.length; i++) {
-    for (let j = 0; j < newArr[i].length; j++) {
-      if (newArr[i][j] === "#") {
-        newArr[i].splice(j, 1);
-      }
-    }
-    newArr[i].splice(0, 2);
-  }
-  return newArr;
-}
