@@ -11,7 +11,7 @@
 const summation = function(num) {
         const myArray = [];
 
-        for (let i = 1; i <= num; i++) {
+        for (let i = 1; i <= num; i += 1) {
                 myArray.push(i);
         }
         return myArray.reduce((a, b) => a + b, 0);
