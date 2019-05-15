@@ -25,3 +25,9 @@ function generateRules(func, portList) {
         const rules = portList.map(port => `iptables -I INPUT -p tcp --dport ${port} -j ACCEPT ;`);
         return rules.join('');
 }
+
+// Noticed I did not use func at all. Got schooled.
+
+function generateRules(func, portList) {
+        return portList.map(func).join('');
+}
