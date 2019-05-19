@@ -9,15 +9,14 @@
 
 function workNeeded(projectMinutes, freelancers) {
         let freelancersMinutes = 0;
-        const remainingMinutes = projectMinutes - freelancersMinutes;
         for (let i = 0; i < freelancers.length; i += 1) {
                 freelancersMinutes += freelancers[i][0] * 60 + freelancers[i][1];
         }
         if (freelancersMinutes >= projectMinutes) {
                 return 'Easy Money!';
         }
-
-        return `I need to work ${Math.floor(remainingMinutes / 60)} hour(s) and ${remainingMinutes % 60} minute(s)`;
+        // Calculated the time left after the freelancers are done working
+        return `I need to work ${Math.floor((projectMinutes - freelancersMinutes) / 60)} hour(s) and ${(projectMinutes -
+                freelancersMinutes) %
+                60} minute(s)`;
 }
-
-// TODO - FIX!
