@@ -18,5 +18,5 @@ function tripleX(str) {
                         break;
                 }
         }
-        return !!(str[oneX + 1] === 'x' && str[oneX + 2] === 'x');
+        return str[oneX + 1] === 'x' && str[oneX + 2] === 'x';
 }
