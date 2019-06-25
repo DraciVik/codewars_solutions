@@ -21,11 +21,19 @@ const sequenceSum = (begin, end, step) => {
                 return 0;
         }
         let count = 0;
-        for (let i = begin; i <= end; i += step) {
-                if (i + step > end) {
+        if (end > 0) {
+                for (let i = begin; i <= end; i += step) {
+                        if (i + step > end) {
+                                count;
+                        }
+                        count += i;
+                }
+        }
+        for (let i = begin; i >= end; i += step) {
+                if (i + step < end) {
                         count;
                 }
-                count += i;
+                count += 1;
         }
         return count;
 };
