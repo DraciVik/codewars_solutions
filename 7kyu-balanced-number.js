@@ -70,6 +70,7 @@ function balancedNum(number) {
         if (numberArray.length === 1 || numberArray.length === 2) {
                 return 'Balanced';
         }
+        // Math.ceil is for the case when the number is not even
         for (let i = 0; i < Math.ceil(numberArray.length / 2 - 1); i += 1) {
                 leftSum += numberArray[i];
                 rightSum += numberArray[numberArray.length - (i + 1)];
