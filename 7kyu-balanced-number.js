@@ -62,3 +62,20 @@
 // ALL translations are welcomed
 // Enjoy Learning !!
 // Zizou
+function balancedNum(number) {
+        const stringArray = String(number).split('');
+        const numberArray = stringArray.map(value => Number(value));
+        let leftSum = 0;
+        let rightSum = 0;
+        if (numberArray.length === 1 || numberArray.length === 2) {
+                return 'Balanced';
+        }
+        for (let i = 0; i < Math.ceil(numberArray.length / 2 - 1); i += 1) {
+                leftSum += numberArray[i];
+                rightSum += numberArray[numberArray.length - (i + 1)];
+        }
+        if (leftSum === rightSum) {
+                return 'Balanced';
+        }
+        return 'Not Balanced';
+}
