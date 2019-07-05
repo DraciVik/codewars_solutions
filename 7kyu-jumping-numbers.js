@@ -66,22 +66,15 @@
 // ALL translations are welcomed
 // Enjoy Learning !!
 // Zizou
-function jumpingNumber(n) {
-        const nArrayString = String(n).split('');
-        const nArray = nArrayString.map(value => Number(value));
-        if (nArray.length === 1) {
-                return 'Jumping!!';
+function specialNumber(n) {
+        const nString = String(n);
+        const regex = /[0-5]/g;
+        const matchesArray = nString.match(regex);
+        if (matchesArray === null) {
+                return 'NOT!!';
         }
-        if (nArray.length === 2) {
-                if (Math.abs(nArray[0] - nArray[1]) !== 1) {
-                        return 'Not!!';
-                }
-                return 'Jumping!!';
+        if (nString.length !== matchesArray.length) {
+                return 'NOT!!';
         }
-        for (let i = 1; i < nArray.length; i += 1) {
-                if (Math.abs(nArray[i] - nArray[i - 1]) !== 1) {
-                        return 'Not!!';
-                }
-        }
-        return 'Jumping!!';
+        return 'Special!!';
 }
