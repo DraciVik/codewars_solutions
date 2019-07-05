@@ -79,7 +79,7 @@ function jumpingNumber(n) {
                 return 'Jumping!!';
         }
         for (let i = 1; i < nArray.length; i += 1) {
-                if (Math.abs(nArray[i] - nArray[i - 1]) !== 1 || Math.abs(nArray[i] - nArray[i + 1]) !== 1) {
+                if (Math.abs(nArray[i] - nArray[i - 1]) !== 1) {
                         return 'Not!!';
                 }
         }
