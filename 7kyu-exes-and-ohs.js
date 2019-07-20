@@ -13,9 +13,10 @@ function XO(str) {
         const oRegex = /o/gi;
         const xCount = str.match(xRegex);
         const oCount = str.match(oRegex);
-        if (xCount === [] && oCount === []) {
+        if (xCount == false && oCount == false) {
                 return true;
         }
+
         if (xCount === null || oCount === null) {
                 return false;
         }
