@@ -9,7 +9,7 @@
 function sumOfABeach(beach) {
         const regex = /sand|water|fish|sun/gi;
         const repeatBeach = beach.match(regex);
-        if (repeatBeach === []) {
+        if (repeatBeach === null) {
                 return 0;
         }
         return repeatBeach.length;
