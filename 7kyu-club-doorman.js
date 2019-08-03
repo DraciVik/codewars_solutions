@@ -21,7 +21,7 @@
 function passTheDoorMan(word) {
         const alphabet = 'abcdefghijklmnopqrstuvwxyz';
         for (let i = 0; i < word.length; i += 1) {
-                if (word[i] == word[i + 1]) {
+                if (word[i] === word[i + 1]) {
                         return (alphabet.indexOf(word[i]) + 1) * 3;
                 }
         }
