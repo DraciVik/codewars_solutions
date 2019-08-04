@@ -33,18 +33,23 @@
 // You get self-awarded bonus points if your answer runs in O(n) time and memory constraints.
 
 function splitWorkload(workload) {
-        let result = 10000000;
-        let left = [];
-        let right = [];
-        const sum = (a, b) => a + b;
-        for (let i = 0; i < workload.length; i += 1) {
-                right = workload.slice(i);
-                left = workload.slice(0, i + 1);
-                if (right.reduce(sum) - left.reduce(sum) < result) {
-                        result = right.reduce(sum) - left.reduce(sum);
-                }
+        if (workload.length === 0) {
+                return [null, null];
         }
 
-        return [workload.indexOf(right[0]), result];
+        let sumA = 0;
+        let sumB = workload.reduce((cur, val) => cur + val, 0);
+        let minDif = Math.abs(sumA - sumB);
+        let min = 0;
+
+        for (let i = 0; i < workload.length; i += 1) {
+                sumA += workload[i];
+                sumB -= workload[i];
+                const diff = Math.abs(sumA - sumB);
+                if (diff < minDif) {
+                        minDif = diff;
+                        min = i + 1;
+                }
+        }
+        return [min, minDif];
 }
-// TODO: Fix it!!!
