@@ -26,3 +26,13 @@ function sortString(string, ordering) {
     return ordered.join("");
 
 }
+
+const a = [1, 2, 3, 4, 5];
+
+a.multiply = function () {
+    this = this.concat(this.map(value => value ** 2));
+    return this;
+}
+
+
+a.multiply();
