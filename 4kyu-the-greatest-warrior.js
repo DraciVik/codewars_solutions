@@ -14,68 +14,69 @@ const RANKS = [
 
 class Warrior {
   constructor() {
-    this.warriorExperience = 100;
-    this.warriorLevel = 1;
-    this.warriorRank = "Pushover";
-    this.warriorAchievements = [];
+    this._level = 1;
+    this._experience = 100;
+    this._achievements = [];
   }
+
   level() {
-    return this.warriorLevel;
+    this._level = Math.floor(this._experience / 100);
+    return Math.min(this._level, 100);
   }
-  rank() {
-    return this.warriorRank;
-  }
+
   experience() {
-    return this.warriorExperience;
+    return Math.min(this._experience, 10000);
   }
+
+  rank() {
+    return RANKS[Math.floor(this._level / 10)] || RANKS[RANKS.length - 1];
+  }
+
   achievements() {
-    return this.warriorAchievements;
+    return this._achievements;
   }
 
-  training(event) {
-    if (this.warriorLevel >= event[2]) {
-      this.warriorAchievements.push(event[0]);
-      this.warriorExperience += event[1];
-      if (this.warriorExperience > 10000) {
-        this.warriorExperience = 10000;
-      }
-      this.warriorLevel = Math.floor(this.warriorExperience / 100);
-      this.warriorRank = RANKS[Math.floor(warriorExperience / 100 / 10)];
-      return event[0];
-    } else {
-      return "Not strong enough";
-    }
+  training([description, exp, minLevel]) {
+    if (minLevel > this._level) return "Not strong enough";
+    this._achievements.push(description);
+    this._experience += exp;
+    this._level = Math.floor(this._experience / 100);
+    return description;
   }
 
-  battle(enemy_level) {
-    if (enemy_level < 1 || enemy_level > 100) {
+  isWarriorsSameRank(first, second) {
+    return Math.floor(first / 10) === Math.floor(second / 10);
+  }
+
+  battle(enemyLevel) {
+    if (enemyLevel < 1 || enemyLevel > 100) {
       return "Invalid level";
     }
-    if (enemy_level === this.warriorLevel) {
-      this.warriorExperience += 10;
-      return "A good fight";
+
+    let fightResult = this.getFightResult(enemyLevel);
+
+    this._level = Math.floor(this._experience / 100);
+
+    return fightResult;
+  }
+
+  getFightResult(enemyLevel) {
+    switch (true) {
+      case this._level === enemyLevel:
+        this._experience += 10;
+        return "A good fight";
+      case this._level - enemyLevel === 1:
+        this._experience += 5;
+        return "A good fight";
+      case this._level - enemyLevel <= -5 &&
+        !this.isWarriorsSameRank(this._level, enemyLevel):
+        return `You've been defeated`;
+      case this._level < enemyLevel:
+        this._experience +=
+          20 * ((enemyLevel - this._level) * (enemyLevel - this._level));
+        return "An intense fight";
+      default:
+        return "Easy fight";
     }
-    if (enemy_level === this.warriorLevel - 1) {
-      this.warriorExperience += 5;
-      return "A good fight";
-    }
-    if (enemy_level < this.warriorLevel - 1) {
-      this.warriorExperience += 0;
-      return "Easy fight";
-    }
-    if (
-      enemy_level - this.warriorLevel >= 5 &&
-      this.warriorRank !== RANKS[Math.floor(enemy_level / 10)]
-    ) {
-      return "You've been defeated";
-    }
-    this.warriorExperience +=
-      20 *
-      (enemy_level - this.warriorLevel) *
-      (enemy_level - this.warriorLevel);
-    if (this.warriorExperience > 10000) {
-      this.warriorExperience = 10000;
-    }
-    return "An intense fight";
   }
 }
